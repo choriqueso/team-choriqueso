@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show-hide-toggle</title>
+
+    <style>
+
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            grid-column-gap: 5px;
+            grid-row-gap: 5px;
+            justify-content: center;
+            text-align: center;
+            background-color: aliceblue;
+        }
+
+        .buttons {
+            grid-area: 1 / 1 / 2 / 2;
+
+        }
+        .hide-button {
+            grid-area: 2 / 1 / 3 / 2;
+            background-color: aqua;
+            font-weight: bolder;
+        }
+        .show-button {
+            grid-area: 3 / 1 / 4 / 2;
+            background-color: aqua;
+            font-weight: bolder;
+        }
+        .toggle-button {
+            grid-area: 4 / 1 / 5 / 2;
+            background-color: aqua;
+            font-weight: bolder;
+        }
+        .fade-in {
+            grid-area: 5 / 1 / 6 / 2;
+            background-color: coral;
+
+        }
+        .fade-out {
+            grid-area: 6 / 1 / 7 / 2;
+            background-color: coral;
+        }
+        .fade-toggle {
+            grid-area: 7 / 1 / 8 / 2;
+            background-color: coral;
+        }
+        .up-button {
+            grid-area: 8 / 1 / 9 / 2;
+            background-color: pink;
+        }
+        .down-button {
+            grid-area: 9 / 1 / 10 / 2;
+            background-color: pink;
+        }
+        .slide-toggle-button {
+            grid-area: 10 / 1 / 11 / 2;
+            background-color: pink;
+        }
+/*///////////////////////////////////////////////////////// images /////////////////////*/
+        img:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        }
+        .images { grid-area: 1 / 2 / 2 / 4; }
+        .first-image {
+            grid-area: 2 / 2 / 5 / 4;
+            font-weight: bolder;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 100%;
+            justify-content: center;
+        }
+
+
+
+        .fade-image {
+            grid-area: 5 / 2 / 8 / 4;
+            font-weight: bolder;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 100%;
+            justify-content: center;
+        }
+        .slide-image {
+            grid-area: 8 / 2 / 11 / 4;
+            font-weight: bolder;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 100%;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="parent">
+    <div class="buttons"><h1>BUTTONS</h1></div>
+    <div class="hide-button"><button>HIDE</button></div>
+    <div class="show-button"><button>SHOW</button></div>
+    <div class="toggle-button"><button>TOGGLE</button></div>
+    <div class="fade-out"><button>FADE-OUT</button></div>
+    <div class="fade-in"><button>FADE-IN</button></div>
+    <div class="fade-toggle"><button>TOGGLE-FADE</button></div>
+    <div class="up-button"><button>SLIDE-UP</button></div>
+    <div class="down-button"><button>SLIDE-DOWN</button></div>
+    <div class="slide-toggle-button" ><button>TOGGLE-SLIDE</button></div>
+    <div class="images"><h1>IMAGES</h1></div>
+    <div class="first-image"><img src="img/alamo.jpeg" alt=""></div>
+    <div class="fade-image"><img src="img/alamo.jpeg"></div>
+    <div class= "slide-image"><img src="img/alamo.jpeg"></div>
+</div>
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+
+    $(document).ready(function() {
+
+        $('.hide-button').on('click', () => {
+            $('.first-image').hide();
+        });
+
+        $('.show-button').on('click', () => {
+            // show
+            $('.first-image').show();
+        });
+
+        $('.toggle-button').on('click', () => {
+            // toggle hides or shows
+            $('.first-image').toggle();
+        });
+
+        $('.fade-out').on('click', () => {
+            // fade-out
+            $('.fade-image').fadeOut(500);
+        });
+
+        $('.fade-in').on('click', () => {
+            // fade-in
+            $('.fade-image').fadeIn(4000);
+        });
+
+        $('.fade-toggle').on('click', () => {
+            // fade in or out with toggle
+            $('.fade-image').fadeToggle();
+        });
+
+        $('.up-button').on('click', () => {
+            // slide up
+            $('.slide-image').slideUp(100);
+
+        });
+
+        $('.down-button').on('click', () => {
+            // slide down
+            $('.slide-image').slideDown('slow');
+
+        });
+
+        $('.slide-toggle-button').on('click', () => {
+            // slide up or down via toggle
+            $('.slide-image').slideToggle();
+
+        });
+
+    });
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
