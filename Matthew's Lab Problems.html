@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Matthew's Lab Problems!</title>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        div {
+            background: red;
+            color: white;
+            height: 150px;
+            width: 150px;
+        }
+
+        div.contextmenu {
+            background: green;
+            color: black;
+        }
+
+        .div1 {
+            width: 100px;
+            height: 60px;
+            background-color: #f33;
+            color: white
+        }
+
+        .div2 {
+            width: 100px;
+            height: 60px;
+            background-color: #a14;
+            color: white
+        }
+
+        p {
+            background: orange;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1><u>Matthew's Lab Problems!</u></h1>
+<h2><u>Week 1 Problems</u></h2>
+<h3><u>Problem 1</u></h3>
+<div class="contextmenu"></div>
+<span>Right click the block!</span>
+<h3><u>Problem 2</u></h3>
+<div class="div1">Click to increase the size</div>
+<div class="div2">Click to increase the size</div>
+<h3><u>Problem 3</u></h3>
+<p>Click me to add new paragraph.</p>
+
+
+<!-- JQuery Script File -->
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+
+    // TODO: WEEK 1 JQuery Problems - source (https://www.w3resource.com/jquery-exercises/2/index.php)
+
+    // 1st Problem - Using jQuery right click to toggle background color.
+    var div = $("div:first");
+    div.contextmenu(function () {
+        div.toggleClass("contextmenu");
+    });
+
+    // 2nd Problem - Increase the size of a division when you click it.
+    $("div").on("click", function () {
+        $(this).css({
+            width: function (index, value) {
+                return parseFloat(value) * 1.2;
+            },
+            height: function (index, value) {
+                return parseFloat(value) * 1.2;
+            }
+        });
+    });
+
+    // 3rd Problem - Click on a paragraph and add another paragraph.
+    $( "body" ).delegate( "p", "click", function() {
+        $( this ).after( "<p>New paragraph!</p>" );
+    });
+
+
+</script>
+</body>
+</html>
