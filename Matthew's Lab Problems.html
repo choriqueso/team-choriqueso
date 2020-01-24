@@ -36,6 +36,21 @@
             color: white
         }
 
+        /*div {*/
+        /*    position: absolute;*/
+        /*    width: 50px;*/
+        /*    height: 50px;*/
+        /*    float: left;*/
+        /*}*/
+        .div3 {
+            background-color: red;
+            left: 0;
+        }
+        .div4 {
+            background-color: green;
+            left: 80px;
+        }
+
         p {
             background: orange;
             font-weight: bold;
@@ -57,6 +72,22 @@
 <div class="div2">Click to increase the size</div>
 <h3><u>Problem 3</u></h3>
 <p>Click me to add new paragraph.</p>
+
+<h2><u>Week 2 Problems</u></h2>
+<h3><u>Problem 1</u></h3>
+<span><button>Run</button></span>
+<div class="div3"></div>
+<div class="div4"></div>
+<h3><u>Problem 2</u></h3>
+<form>
+    <input id="field1" type="text" value="Field 1">
+    <input id="field2" type="text" value="Field 2">
+</form>
+<h4>Write something in the input Field 1, and then click outside the field to check lose focus.</h4>
+<h3><u>Problem 3</u></h3>
+<h4>User ID : <input type="text" id='field3'></h4>
+<h4>Password : <input type="password" id='field4'> </h4>
+<h4>Stop people from writing in first text input box</h4>
 
 
 <!-- JQuery Script File -->
@@ -88,6 +119,23 @@
         $( this ).after( "<p>New paragraph!</p>" );
     });
 
+    // TODO: WEEK 2 JQuery Problems - source (https://www.w3resource.com/jquery-exercises/2/index.php)
+
+    // 1st Problem - Animate the hiding and showing of two divs, delaying the first before showing it.
+    $( "button" ).click(function() {
+        $( "div.div3" ).slideUp( 300 ).delay( 800 ).fadeIn( 400 );
+        $( "div.div4" ).slideUp( 400 ).fadeIn( 300 );
+    });
+
+    // 2nd Problem - Attach a function to the blur event. The blur event occurs when the following <input> Field1 loses focus.
+    $( "#field1" ).blur(function() {
+        alert( "Lose focus from Field1" );
+    });
+
+    // 3rd Problem - Stop people from writing in first text input box (user ID).
+    $( "input[id=field3]" ).focus(function() {
+        $( this ).blur();
+    });
 
 </script>
 </body>
